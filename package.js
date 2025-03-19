@@ -1,12 +1,12 @@
 Package.describe({
   name: "dburles:factory",
   summary: "Factories for Meteor",
-  version: "1.5.0",
+  version: "1.5.1",
   git: "https://github.com/versolearning/meteor-factory.git",
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom("1.2");
+  api.versionsFrom(["1.2", "2.0", "3.0"]);
   api.use(["ecmascript", "minimongo", "underscore", "ejson", "random"]);
   api.addFiles("factory.js");
   api.export("Factory");
