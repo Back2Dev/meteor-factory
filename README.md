@@ -2,10 +2,12 @@
 
 A package for creating test data or for generating fixtures.
 
+_Updated for Meteor 3.0+ _
+
 ## Installation
 
 ```sh
-meteor add dburles:factory
+meteor add mikkelking:factory
 ```
 
 ## Table of Contents
@@ -31,22 +33,22 @@ meteor add dburles:factory
 ### Defining factories
 
 ```javascript
-Authors = new Meteor.Collection("authors");
-Books = new Meteor.Collection("books");
+Authors = new Meteor.Collection("authors")
+Books = new Meteor.Collection("books")
 
 Factory.define("author", Authors, {
   name: "John Smith",
 }).after((author) => {
   // Do something smart
-});
+})
 
 Factory.define("book", Books, {
   authorId: Factory.get("author"),
   name: "A book",
   year() {
-    return _.random(1900, 2014);
+    return _.random(1900, 2014)
   },
-});
+})
 
 // We can also extend from an existing factory
 Factory.define(
@@ -55,17 +57,17 @@ Factory.define(
   Factory.extend("book", {
     // ...
   })
-);
+)
 ```
 
 ### Creating documents
 
 ```javascript
 // Ex. 1: Inserts a new book into the books collection
-const book = Factory.create("book");
+const book = Factory.create("book")
 
 // Ex. 2: New fields can be added or overwritten
-const book = Factory.create("book", { name: "A better book" });
+const book = Factory.create("book", { name: "A better book" })
 ```
 
 ## API
@@ -122,14 +124,14 @@ Example:
 ```js
 Factory.define("author", Authors, {
   name: "John Smith",
-});
+})
 
 Factory.define("book", Books, {
   name: "A book",
   author: Factory.get("author"),
-});
+})
 
-const book = Factory.tree("book");
+const book = Factory.tree("book")
 ```
 
 `book` then equals:

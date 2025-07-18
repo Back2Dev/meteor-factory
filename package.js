@@ -1,18 +1,18 @@
 Package.describe({
-  name: "dburles:factory",
+  name: "mikkelking:factory",
   summary: "Factories for Meteor",
-  version: "1.5.1",
-  git: "https://github.com/versolearning/meteor-factory.git",
-});
+  version: "3.0.1",
+  git: "https://github.com/Back2Dev/meteor-factory.git",
+})
 
 Package.onUse(function (api) {
-  api.versionsFrom(["1.2", "2.0", "3.0"]);
-  api.use(["ecmascript", "minimongo", "underscore", "ejson", "random"]);
-  api.addFiles("factory.js");
-  api.export("Factory");
-});
+  api.versionsFrom(["2.0", "3.0"])
+  api.use(["ecmascript", "minimongo", "underscore", "ejson", "random"])
+  api.addFiles("factory.js")
+  api.export("Factory")
+})
 
 Package.onTest(function (api) {
-  api.use(["ecmascript", "tinytest", "dburles:factory", "underscore"]);
-  api.addFiles("factory_tests.js", "server");
-});
+  api.use(["ecmascript", "tinytest", "mikkelking:factory", "underscore"])
+  api.addFiles("factory_tests.js", "server")
+})
